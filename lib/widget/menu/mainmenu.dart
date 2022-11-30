@@ -131,7 +131,7 @@ class menu_logout extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        LoginContext.read<Login_Bloc>().add(Logout());
+        LoginContext.read<Login_Bloc>().add(Logout_drower());
         // BlocProvider.of<SwPageCubit>(context).togglePage(page);
         // CuPage = page;
         // CuPageLV = Lv;

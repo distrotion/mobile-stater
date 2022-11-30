@@ -19,6 +19,10 @@ class ReLogin extends LoginEvent {}
 
 class Logout extends LoginEvent {}
 
+class Logout_drower extends LoginEvent {}
+
+//_Logout_Function_drower
+
 class Login_Bloc extends Bloc<LoginEvent, String> {
   Login_Bloc() : super('') {
     on<LoginPage>((event, emit) {
@@ -29,6 +33,9 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
     });
     on<Logout>((event, emit) {
       return _Logout_Function(state, emit);
+    });
+    on<Logout_drower>((event, emit) {
+      return _Logout_Function_drower(state, emit);
     });
   }
 
@@ -72,6 +79,25 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
 
     if (token == '') {
       MainBodyContext.read<ChangePage_Bloc>().ChangePage_nodrower(0);
+      BlocProvider.of<BlocNotification>(contextGB)
+          .UpdateNotification("", "Logout", enumNotificationlist.Success);
+    }
+
+    emit('');
+  }
+
+  Future<void> _Logout_Function_drower(
+      String toAdd, Emitter<String> emit) async {
+    final SharedPreferences prefs = await _prefs;
+    token = '';
+    USERDATA.UserLV = 0;
+
+    tokenSP = prefs.setString("tokenSP", token).then((bool success) {
+      return state;
+    });
+
+    if (token == '') {
+      MainBodyContext.read<ChangePage_Bloc>().ChangePage(0);
       BlocProvider.of<BlocNotification>(contextGB)
           .UpdateNotification("", "Logout", enumNotificationlist.Success);
     }
