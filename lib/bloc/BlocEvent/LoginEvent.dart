@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/global.dart';
+import '../../mainBody.dart';
+import '../cubit/ChangePageEvent.dart';
 import '../cubit/NotificationEvent.dart';
 
 //-------------------------------------------------
@@ -34,13 +36,14 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
     final SharedPreferences prefs = await _prefs;
     // token = (prefs.getString('token') ?? '');
     token = 'test';
-    USERDATA.UserLV = 2;
+    USERDATA.UserLV = 1;
 
     tokenSP = prefs.setString("tokenSP", token).then((bool success) {
       return state;
     });
 
     if (token != '') {
+      MainBodyContext.read<ChangePage_Bloc>().ChangePage_nodrower(1);
       BlocProvider.of<BlocNotification>(contextGB).UpdateNotification(
           "Success", "Login OK", enumNotificationlist.Success);
     } else {
@@ -54,7 +57,7 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
   Future<void> _ReLogin_Function(String toAdd, Emitter<String> emit) async {
     final SharedPreferences prefs = await _prefs;
     token = (prefs.getString('tokenSP') ?? '');
-    USERDATA.UserLV = 2;
+    USERDATA.UserLV = 1;
     emit(token);
   }
 
@@ -68,6 +71,7 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
     });
 
     if (token == '') {
+      MainBodyContext.read<ChangePage_Bloc>().ChangePage_nodrower(0);
       BlocProvider.of<BlocNotification>(contextGB)
           .UpdateNotification("", "Logout", enumNotificationlist.Success);
     }

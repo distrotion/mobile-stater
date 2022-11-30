@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../data/global.dart';
+
 //---------------------------------------------------------
 
 class Page1 extends StatelessWidget {

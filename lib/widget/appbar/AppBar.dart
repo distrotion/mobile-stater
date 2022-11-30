@@ -30,9 +30,9 @@ class _App_BarState extends State<App_Bar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Logo2(),
-          Logo1(),
-          Spacer(),
+          // Logo2(),
+          // Logo1(),
+          // Spacer(),
           //Text(MediaQuery.of(context).size.width.toString()),
           //Text("  |  <--->  |  " + current_page.toString()),
           Spacer(),
@@ -112,12 +112,12 @@ class Pack_topright_bar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 20),
-      child: Container(
-          width: 150,
+      child: SizedBox(
+          // width: 200,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Time_(), Icon_bell(), Icon_profile()],
-          )),
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [Time_(), Icon_bell(), Icon_profile()],
+      )),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/BlocEvent/ChangePageEvent.dart';
+import 'bloc/cubit/ChangePageEvent.dart';
 import 'bloc/BlocEvent/LoginEvent.dart';
 import 'bloc/cubit/NotificationEvent.dart';
 import 'bloc/cubit/Rebuild.dart';
@@ -86,7 +86,15 @@ class _pre_loginState extends State<pre_login> {
             },
           ));
     } else {
-      return const Loginbody();
+      // return const Loginbody();
+      USERDATA.UserLV = 0;
+      return BlocProvider(
+          create: (_) => ChangePage_Bloc(),
+          child: BlocBuilder<ChangePage_Bloc, Widget>(
+            builder: (context, page) {
+              return MainBody(page: page);
+            },
+          ));
     }
   }
 }

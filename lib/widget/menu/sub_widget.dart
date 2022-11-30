@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/ChangePageEvent.dart';
+import '../../bloc/cubit/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 
 class menu_normal extends StatelessWidget {
-  menu_normal(
-      {Key? key, this.name, this.icon, required this.page, required this.Lv})
-      : super(key: key);
+  menu_normal({
+    Key? key,
+    this.name,
+    this.icon,
+    required this.page,
+    // required this.Lv,
+  }) : super(key: key);
   String? name;
-  Widget page;
+  int page;
   String? icon;
-  int Lv;
+  // int Lv;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +25,8 @@ class menu_normal extends StatelessWidget {
     return InkWell(
       onTap: () {
         // BlocProvider.of<SwPageCubit>(context).togglePage(page);
-        CuPage = page;
-        CuPageLV = Lv;
-        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage());
+
+        MainBodyContext.read<ChangePage_Bloc>().ChangePage(page);
       },
       child: Container(
         //color: Colors.blue,

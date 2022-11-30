@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 //------------------------------------
 
-import '../../bloc/BlocEvent/ChangePageEvent.dart';
+import '../../bloc/cubit/ChangePageEvent.dart';
 import '../../bloc/cubit/Rebuild.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
@@ -81,9 +81,8 @@ void WORNINGPatMoveZonepop(
                   // ),
                   InkWell(
                     onTap: () {
-                      CuPage = Page1();
                       MainBodyContext.read<ChangePage_Bloc>()
-                          .add(ChangePage_nodrower());
+                          .ChangePage_nodrower(1);
                       Navigator.pop(contextin);
                     },
                     child: Container(

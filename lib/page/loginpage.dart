@@ -31,17 +31,6 @@ class LoginPageWidget extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  Container(
-                    height: 100,
-                    // width: 300,
-                    decoration: const BoxDecoration(
-                      // color: Colors.red,
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/logo_tpk.png"),
-                        fit: BoxFit.none,
-                      ),
-                    ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
