@@ -20,12 +20,13 @@ class Page0Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(token);
     if (token != '') {
       return const Center(
         child: FILEpicfunction(),
       );
     } else {
-      return const Loginbody();
+      return Loginbody();
     }
   }
 }

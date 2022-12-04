@@ -44,7 +44,9 @@ class MainbodyBuffer extends MainBlocRebuild {
                     return Scaffold(
                       body: Stack(
                         children: [
-                          pre_login(),
+                          pre_login(
+                            tokenin: tokenin,
+                          ),
                           Positioned(
                             top: 64,
                             right: 24,
@@ -61,7 +63,8 @@ class MainbodyBuffer extends MainBlocRebuild {
 }
 
 class pre_login extends StatefulWidget {
-  const pre_login({Key? key}) : super(key: key);
+  pre_login({Key? key, this.tokenin}) : super(key: key);
+  final tokenin;
 
   @override
   State<pre_login> createState() => _pre_loginState();
@@ -77,31 +80,17 @@ class _pre_loginState extends State<pre_login> {
   @override
   Widget build(BuildContext context) {
     LoginContext = context;
-    if (token != '') {
-      return BlocProvider(
-        create: (_) => ChangePage_Bloc(),
-        child: BlocBuilder<ChangePage_Bloc, Widget>(
-          builder: (context, page) {
-            return MainBody(
-              page: page,
-            );
-          },
-        ),
-      );
-    } else {
-      // return const Loginbody();
-      USERDATA.UserLV = 0;
-      return BlocProvider(
-        create: (_) => ChangePage_Bloc(),
-        child: BlocBuilder<ChangePage_Bloc, Widget>(
-          builder: (context, page) {
-            return MainBody(
-              page: page,
-            );
-          },
-        ),
-      );
-    }
+
+    return BlocProvider(
+      create: (_) => ChangePage_Bloc(),
+      child: BlocBuilder<ChangePage_Bloc, Widget>(
+        builder: (context, page) {
+          return MainBody(
+            page: page,
+          );
+        },
+      ),
+    );
   }
 }
 
@@ -125,7 +114,7 @@ class MainBody extends StatelessWidget {
 }
 
 class Loginbody extends StatelessWidget {
-  const Loginbody({Key? key}) : super(key: key);
+  Loginbody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

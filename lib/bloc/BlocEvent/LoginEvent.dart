@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../../widget/common/Loading.dart';
 import '../cubit/ChangePageEvent.dart';
 import '../cubit/NotificationEvent.dart';
 
@@ -63,8 +65,15 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
 
   Future<void> _ReLogin_Function(String toAdd, Emitter<String> emit) async {
     final SharedPreferences prefs = await _prefs;
+    FreeLoading(LoginContext);
+    await Future.delayed(const Duration(seconds: 1));
     token = (prefs.getString('tokenSP') ?? '');
     USERDATA.UserLV = 1;
+    Navigator.pop(LoginContext);
+    if (token != '') {
+      MainBodyContext.read<ChangePage_Bloc>().ChangePage_nodrower(1);
+    }
+
     emit(token);
   }
 
