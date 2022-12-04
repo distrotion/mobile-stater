@@ -26,7 +26,7 @@ class _App_BarState extends State<App_Bar> {
     return Container(
       height: 70,
       width: MediaQuery.of(context).size.width,
-      color: Color(0xff0b1327),
+      color: const Color(0xff0b1327),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -64,7 +64,7 @@ class Logo2 extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(1),
             child: Container(
               height: 35,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 image: DecorationImage(
                   image: AssetImage("assets/images/logo_tpk.png"),
@@ -90,8 +90,8 @@ class Logo1 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25),
       child: Container(
-        color: Color(0xff0b1327),
-        child: Text(
+        color: const Color(0xff0b1327),
+        child: const Text(
           "Thaiparker",
           style: TextStyle(
             fontFamily: 'Mitr',
@@ -130,7 +130,7 @@ class Icon_bell extends StatelessWidget {
     return Container(
       // width: 24,
       // height: 24,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),
       child: IconButton(
@@ -144,14 +144,14 @@ class Icon_bell extends StatelessWidget {
 class Icon_profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new InkWell(
+    return InkWell(
       onLongPress: () {
         LoginContext.read<Login_Bloc>().add(Logout());
       },
       child: Container(
           width: 24,
           height: 24,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.brown.shade300)),
     );

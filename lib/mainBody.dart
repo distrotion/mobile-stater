@@ -79,22 +79,28 @@ class _pre_loginState extends State<pre_login> {
     LoginContext = context;
     if (token != '') {
       return BlocProvider(
-          create: (_) => ChangePage_Bloc(),
-          child: BlocBuilder<ChangePage_Bloc, Widget>(
-            builder: (context, page) {
-              return MainBody(page: page);
-            },
-          ));
+        create: (_) => ChangePage_Bloc(),
+        child: BlocBuilder<ChangePage_Bloc, Widget>(
+          builder: (context, page) {
+            return MainBody(
+              page: page,
+            );
+          },
+        ),
+      );
     } else {
       // return const Loginbody();
       USERDATA.UserLV = 0;
       return BlocProvider(
-          create: (_) => ChangePage_Bloc(),
-          child: BlocBuilder<ChangePage_Bloc, Widget>(
-            builder: (context, page) {
-              return MainBody(page: page);
-            },
-          ));
+        create: (_) => ChangePage_Bloc(),
+        child: BlocBuilder<ChangePage_Bloc, Widget>(
+          builder: (context, page) {
+            return MainBody(
+              page: page,
+            );
+          },
+        ),
+      );
     }
   }
 }

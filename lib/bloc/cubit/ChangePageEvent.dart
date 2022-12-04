@@ -89,12 +89,16 @@ bool permission(int input) {
   } else if (input == 4) {
     return USERDATA.UserLV >= 1;
   } else if (input == 5) {
-    return USERDATA.UserLV >= 0;
+    return USERDATA.UserLV >= 3;
   } else if (input == 6) {
     return USERDATA.UserLV >= 1;
   } else if (input == 7) {
     return USERDATA.UserLV >= 1;
   } else if (input == 8) {
+    return USERDATA.UserLV >= 1;
+  } else if (input == 9) {
+    return USERDATA.UserLV >= 1;
+  } else if (input == 10) {
     return USERDATA.UserLV >= 1;
   } else {
     return false;
