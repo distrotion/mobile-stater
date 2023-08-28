@@ -30,7 +30,7 @@ class _App_BarState extends State<App_Bar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Logo2(),
+          Logo2(),
           // Logo1(),
           // Spacer(),
           //Text(MediaQuery.of(context).size.width.toString()),
@@ -43,7 +43,6 @@ class _App_BarState extends State<App_Bar> {
   }
 
   ///###################################################################################
-
 }
 
 class Logo2 extends StatelessWidget {

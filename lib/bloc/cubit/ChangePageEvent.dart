@@ -83,9 +83,9 @@ bool permission(int input) {
   if (input == 1) {
     return USERDATA.UserLV >= 0;
   } else if (input == 2) {
-    return USERDATA.UserLV >= 1;
-  } else if (input == 3) {
     return USERDATA.UserLV >= 0;
+  } else if (input == 3) {
+    return USERDATA.UserLV >= 1;
   } else if (input == 4) {
     return USERDATA.UserLV >= 1;
   } else if (input == 5) {
